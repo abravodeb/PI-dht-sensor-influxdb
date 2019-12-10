@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-# Importa las librerias necesarias
 import sys
 import time
 import Adafruit_DHT
@@ -8,14 +7,15 @@ import os
 import requests
 
 
+# crontab
+
+# * * * * * /usr/bin/python /home/pi/project/sensor_dht.py 
+
 # Configuracion del tipo de sensor DHT
 sensor = Adafruit_DHT.AM2302 # corresponde al sensor que estoy utilizando...
-#print("hola")
 
 # Configuracion del puerto GPIO al cual esta conectado  (GPIO 23)
 pin = 23
-
-# Intenta ejecutar las siguientes instrucciones, si falla va a la instruccion except
 
 humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 
