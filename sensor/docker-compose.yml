@@ -1,0 +1,18 @@
+version '3'
+
+services:
+    grafana:
+    container_name: grafanaphtsensor
+    image: grafana/grafana:6.7.4-ubuntu
+    restart: always 
+    ports:
+        -  "3000:3000"
+
+    bd:
+    container_name: influxdbpht
+    image: influxdb:alpine
+    restart: always 
+    depends_on:
+        - grafanaphtsensor
+    ports:
+        - "8686:8686"
