@@ -11,8 +11,9 @@ services:
     bd:
     container_name: influxdbpht
     image: influxdb:alpine
+    volumes: 
+    # probar con rutas absolutas 
+       - "data:/var/lib/influxdb"
     restart: always 
-    depends_on:
-        - grafanaphtsensor
     ports:
-        - "8686:8686"
+        - "8086:8086"
