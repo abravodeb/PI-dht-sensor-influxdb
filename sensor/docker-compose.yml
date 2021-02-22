@@ -1,19 +1,18 @@
-version '3'
+version: '3'
 
 services:
     grafana:
-    container_name: grafanaphtsensor
-    image: grafana/grafana:6.7.4-ubuntu
-    restart: always 
-    ports:
-        -  "3000:3000"
+      container_name: grafanaphtsensor
+      image: grafana/grafana:6.7.4-ubuntu
+      restart: always 
+      ports:
+        - "3000:3000"
 
     bd:
-    container_name: influxdbpht
-    image: influxdb:alpine
-    volumes: 
-    # probar con rutas absolutas 
-       - "data:/var/lib/influxdb"
-    restart: always 
-    ports:
+      container_name: influxdbpht
+      image: influxdb:alpine
+      volumes:
+        - ./data:/var/lib/influxdb     
+      restart: always 
+      ports:
         - "8086:8086"
